@@ -1,0 +1,161 @@
+.about-hero{
+    background:linear-gradient(
+        135deg,
+        #2E7D32,
+        #43A047
+    );
+    color:white;
+    text-align:center;
+    padding:100px 20px;
+}
+
+.about-hero h1{
+    font-size:55px;
+    margin-bottom:20px;
+}
+
+.about-hero p{
+    font-size:22px;
+    margin-bottom:30px;
+}
+
+.about-hero button{
+    padding:15px 35px;
+    border:none;
+    border-radius:10px;
+    background:white;
+    color:#2E7D32;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.about-hero button:hover{
+    transform:scale(1.05);
+}
+
+.about-container{
+    width:90%;
+    margin:auto;
+    padding:60px 20px;
+}
+
+.about-container h1{
+    text-align:center;
+    color:#2E7D32;
+    margin-bottom:40px;
+    font-size:42px;
+}
+
+.slide{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:50px;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+.slide-image{
+    flex:1;
+}
+
+.slide-image img{
+    width:100%;
+    height:500px;
+    object-fit:cover;
+    border-radius:20px;
+}
+
+.slide-text{
+    flex:1;
+}
+
+.slide-text h2{
+    color:#2E7D32;
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.slide-text p{
+    font-size:20px;
+    line-height:1.8;
+    color:#555;
+    margin-bottom:25px;
+}
+
+.learn-btn{
+    padding:14px 30px;
+    border:none;
+    border-radius:10px;
+    background:#2E7D32;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.learn-btn:hover{
+    background:#1B5E20;
+}
+
+.impact-section{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    margin:60px 20px;
+    flex-wrap:wrap;
+}
+
+.impact-card{
+    width:220px;
+    background:white;
+    padding:30px;
+    text-align:center;
+    border-radius:20px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.impact-card:hover{
+    transform:translateY(-10px);
+}
+
+.impact-card h2{
+    color:#2E7D32;
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.impact-card p{
+    color:#555;
+    font-size:18px;
+    font-weight:bold;
+}
+
+@media(max-width:768px){
+
+    .slide{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .slide-text{
+        text-align:center;
+    }
+
+    .slide-image img{
+        height:300px;
+    }
+
+    .about-hero h1{
+        font-size:35px;
+    }
+
+    .about-container h1{
+        font-size:30px;
+    }
+}
