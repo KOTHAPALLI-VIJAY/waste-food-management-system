@@ -183,13 +183,29 @@ const connectDB = async () => {
   try {
     if (databaseUrl) {
       // Connect directly using connection URI (e.g. Aiven, TiDB, Clever Cloud, Railway)
-      pool = mysql.createPool({
-        uri: databaseUrl,
-        waitForConnections: true,
-        connectionLimit: 10,
-        queueLimit: 0,
-        ssl: process.env.DB_SSL === "false" ? false : { rejectUnauthorized: false },
-      });
+      try {
+        const parsed = new URL(databaseUrl);
+        const dbName = parsed.pathname.replace(/^\//, "") || "defaultdb";
+        pool = mysql.createPool({
+          host: parsed.hostname,
+          port: Number(parsed.port) || 3306,
+          user: decodeURIComponent(parsed.username),
+          password: decodeURIComponent(parsed.password),
+          database: dbName,
+          waitForConnections: true,
+          connectionLimit: 10,
+          queueLimit: 0,
+          ssl: process.env.DB_SSL === "false" ? false : { rejectUnauthorized: false },
+        });
+      } catch {
+        pool = mysql.createPool({
+          uri: databaseUrl,
+          waitForConnections: true,
+          connectionLimit: 10,
+          queueLimit: 0,
+          ssl: process.env.DB_SSL === "false" ? false : { rejectUnauthorized: false },
+        });
+      }
     } else {
       // Create DB if it doesn't exist on local/custom server
       try {
