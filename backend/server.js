@@ -7,6 +7,8 @@ const donationRoutes = require("./routes/donationRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const userRoutes = require("./routes/userRoutes");
 
+const path = require("path");
+dotenv.config({ path: path.join(__dirname, ".env") });
 dotenv.config();
 
 process.on("uncaughtException", (err) => {
