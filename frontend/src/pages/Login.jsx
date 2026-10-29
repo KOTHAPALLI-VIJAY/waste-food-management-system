@@ -39,7 +39,7 @@ function Login() {
     setErrorMsg("");
     try {
       const res = await apiClient.post("/auth/login", {
-        email,
+        email: email.trim(),
         password,
       });
 
@@ -61,7 +61,8 @@ function Login() {
     } catch (error) {
       console.error("Login failed:", error);
       setErrorMsg(
-        error.response?.data?.message || "Invalid credentials. Please verify your email and password."
+        error.response?.data?.message ||
+        (error.message ? `Connection error: ${error.message}. Please refresh the page.` : "Failed to connect to backend server.")
       );
     } finally {
       setLoading(false);
