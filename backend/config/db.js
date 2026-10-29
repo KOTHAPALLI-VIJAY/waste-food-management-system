@@ -175,10 +175,11 @@ const ensureTables = async (connection) => {
 // ------------------------------------------------------------------
 const connectDB = async () => {
   const databaseUrl = process.env.DATABASE_URL || process.env.MYSQL_URL;
+  let activeDbName = process.env.DB_NAME || "waste_food_db";
   const host     = process.env.DB_HOST     || "localhost";
   const user     = process.env.DB_USER     || "root";
   const password = process.env.DB_PASSWORD || "root";
-  const database = process.env.DB_NAME     || "waste_food_db";
+  const database = activeDbName;
   const port     = Number(process.env.DB_PORT) || 3306;
 
   try {
@@ -186,13 +187,13 @@ const connectDB = async () => {
       // Connect directly using connection URI (e.g. Aiven, TiDB, Clever Cloud, Railway)
       try {
         const parsed = new URL(databaseUrl);
-        const dbName = parsed.pathname.replace(/^\//, "") || "defaultdb";
+        activeDbName = parsed.pathname.replace(/^\//, "") || "defaultdb";
         pool = mysql.createPool({
           host: parsed.hostname,
           port: Number(parsed.port) || 3306,
           user: decodeURIComponent(parsed.username),
           password: decodeURIComponent(parsed.password),
-          database: dbName,
+          database: activeDbName,
           waitForConnections: true,
           connectionLimit: 10,
           queueLimit: 0,
@@ -363,7 +364,7 @@ const connectDB = async () => {
     }
 
     useJsonStore = false;
-    console.log(`Connected to MySQL Database (${database}) successfully.`);
+    console.log(`Connected to MySQL Database (${activeDbName}) successfully.`);
   } catch (err) {
     useJsonStore = true;
     console.warn(
