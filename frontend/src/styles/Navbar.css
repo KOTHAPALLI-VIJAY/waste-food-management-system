@@ -390,41 +390,117 @@
 .mobile-hamburger-btn {
   display: none;
   background: transparent;
-  border: none;
+  border: 1px solid var(--color-border, #E2E8F0);
   color: var(--color-text-main, #17211D);
   cursor: pointer;
-  padding: 8px;
+  padding: 8px 10px;
   border-radius: var(--radius-sm, 8px);
   align-items: center;
   justify-content: center;
+  transition: all 0.2s ease;
 }
 
 .mobile-hamburger-btn:hover {
   background: #F1F5F9;
+  border-color: var(--color-emerald, #059669);
+  color: var(--color-emerald, #059669);
+}
+
+.mobile-nav-backdrop {
+  position: fixed;
+  inset: 0;
+  top: 65px;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(3px);
+  z-index: 998;
 }
 
 .mobile-drawer {
   display: none;
-  padding: 16px 24px 24px;
+  position: relative;
+  z-index: 999;
+  padding: 16px 20px 28px;
   border-top: 1px solid var(--color-border, #E2E8F0);
   background: #FFFFFF;
   text-align: left;
+  max-height: calc(100vh - 70px);
+  overflow-y: auto;
+  box-shadow: 0 16px 24px -4px rgba(6, 78, 59, 0.08);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-down {
+  animation: slideDown 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.mobile-user-profile-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: #F8FAFC;
+  border: 1px solid var(--color-border, #E2E8F0);
+  border-radius: var(--radius-md, 12px);
+  margin-bottom: 14px;
+}
+
+.mobile-user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.mobile-user-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-main, #17211D);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mobile-user-email {
+  font-size: 12px;
+  color: var(--color-text-secondary, #64748B);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mobile-drawer-divider {
+  height: 1px;
+  background: var(--color-border, #E2E8F0);
+  margin: 6px 0;
 }
 
 .mobile-drawer-links {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 .mobile-nav-link {
   font-size: 15px;
   font-weight: 600;
   color: var(--color-text-main, #17211D);
-  padding: 10px 14px;
+  padding: 11px 14px;
   border-radius: var(--radius-sm, 8px);
   text-decoration: none;
   transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .mobile-nav-link:hover {
@@ -438,10 +514,25 @@
   font-weight: 700;
 }
 
+.mobile-drawer-cta {
+  margin-top: 8px;
+  margin-bottom: 4px;
+  justify-content: center;
+  font-weight: 700;
+}
+
 .mobile-logout-btn {
-  margin-top: 12px;
+  margin-top: 10px;
   width: 100%;
   justify-content: center;
+  color: #DC2626 !important;
+  border-color: #FECACA !important;
+  background: #FEF2F2 !important;
+}
+
+.mobile-logout-btn:hover {
+  background: #FEE2E2 !important;
+  border-color: #F87171 !important;
 }
 
 .mobile-auth-actions {
@@ -467,20 +558,29 @@
   }
   .desktop-nav-links { display: none; }
   .action-cta-btn { display: none !important; }
-  .auth-buttons .nav-signin-btn { display: none; }
+  .auth-buttons .btn { padding: 8px 14px; font-size: 13px; }
   .auth-buttons .nav-donate-cta { display: none; }
   .mobile-hamburger-btn { display: flex; }
   .mobile-drawer { display: block; }
-  .user-name-label { max-width: 80px; }
+  .user-name-label { max-width: 90px; }
+}
+
+@media (max-width: 600px) {
+  .navbar-container { padding: 10px 16px; }
+  .user-details-preview { display: none; }
+  .user-profile-trigger { padding: 4px 6px; }
+  .brand-title { font-size: 18px; }
+  .brand-subtitle { font-size: 9px; }
 }
 
 @media (max-width: 480px) {
-  .navbar-container { padding: 10px 16px; }
+  .navbar-container { padding: 10px 14px; }
+  .brand-icon { width: 34px; height: 34px; }
   .brand-title { font-size: 17px; }
   .brand-subtitle { display: none; }
-  .user-name-label { display: none; }
 }
 
 @media (max-width: 360px) {
   .brand-title { font-size: 15px; }
+  .navbar-container { padding: 8px 10px; gap: 8px; }
 }

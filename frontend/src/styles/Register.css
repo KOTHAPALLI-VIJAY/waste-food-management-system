@@ -81,25 +81,28 @@
   gap: 18px;
 }
 
+/* ==========================================================================
+   REGISTER RESPONSIVE (Ordered Cascade)
+   ========================================================================== */
+@media (max-width: 900px) {
+  .register-wrapper { padding: 24px 20px 48px; max-width: 100%; }
+  .register-card { padding: 28px 24px; border-radius: 16px; }
+}
+
 @media (max-width: 640px) {
   .role-selector-tabs {
     grid-template-columns: 1fr;
+    gap: 10px;
   }
   .register-card {
-    padding: 24px;
+    padding: 24px 18px;
   }
-}
-
-
-/* Register Responsive */
-@media (max-width: 900px) {
-  .register-wrapper { padding: 24px 20px; }
-  .register-card { padding: 28px 24px; max-width: 100%; }
 }
 
 @media (max-width: 480px) {
-  .register-wrapper { padding: 16px; }
-  .register-card { padding: 20px 16px; }
-  .role-selector-tabs { flex-direction: column; }
-  .role-tab { flex-direction: row; }
+  .register-wrapper { padding: 16px 12px 36px; }
+  .register-card { padding: 20px 16px; border-radius: 14px; }
+  .role-tab { padding: 12px 14px; }
+  .role-tab strong { font-size: 13px; }
+  .role-tab span { font-size: 11px; }
 }

@@ -166,19 +166,37 @@
 @media (max-width: 900px) {
   .auth-split-wrapper {
     grid-template-columns: 1fr;
-    margin: 20px auto;
+    margin: 20px auto 40px;
+    padding: 0 16px;
   }
   .auth-brand-side {
     display: none;
   }
+  .auth-card {
+    padding: 32px 24px;
+    border-radius: 16px;
+  }
 }
 
-
-/* ==========================================================================
-   AUTH PAGES RESPONSIVE (Enhanced)
-   ========================================================================== */
 @media (max-width: 480px) {
-  .auth-form-side { padding: 24px 16px; }
-  .auth-card { padding: 24px 16px; border-radius: 14px; }
-  .auth-header h1 { font-size: 26px; }
+  .auth-split-wrapper {
+    margin: 10px auto 30px;
+    padding: 0 12px;
+  }
+  .auth-form-side {
+    padding: 0;
+  }
+  .auth-card {
+    padding: 24px 16px;
+    border-radius: 14px;
+  }
+  .auth-header h1 {
+    font-size: 24px;
+  }
+  .auth-header p {
+    font-size: 13px;
+  }
+  .form-input.has-icon {
+    font-size: 16px !important;
+  }
 }

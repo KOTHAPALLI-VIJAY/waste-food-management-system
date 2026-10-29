@@ -369,75 +369,113 @@
   margin-top: 10px;
 }
 
+/* ==========================================================================
+   NGO DASHBOARD RESPONSIVE (Unified & Clean Cascade)
+   ========================================================================== */
 @media (max-width: 1024px) {
   .available-donations-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
   }
   .dispatches-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
   }
 }
 
-@media (max-width: 640px) {
-  .available-donations-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 768px) {
+  .ngo-dashboard-page { padding-bottom: 60px; }
+  .ngo-main-content { padding-top: 16px; }
+  .ngo-header-card {
+    padding: 20px 16px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+  }
+  .ngo-header-card h1 { font-size: clamp(22px, 6vw, 30px); }
+  .marketplace-header-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
   }
   .marketplace-controls {
     flex-direction: column;
     width: 100%;
+    gap: 10px;
   }
   .search-input-box, .filter-select {
     width: 100%;
+    min-width: unset;
   }
-  .otp-action-row {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .otp-field {
-    width: 100% !important;
-  }
-}
-
-
-/* ==========================================================================
-   NGO DASHBOARD RESPONSIVE
-   ========================================================================== */
-@media (max-width: 1079px) {
-  .available-donations-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .dispatches-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-@media (max-width: 767px) {
-  .ngo-header-card { padding: 20px 16px; }
-  .ngo-header-card h1 { font-size: clamp(22px, 6vw, 32px); }
-  .marketplace-header-row {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-  }
-  .marketplace-controls { flex-direction: column; width: 100%; }
-  .search-input-box, .filter-select { width: 100%; min-width: unset; }
   .available-donations-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 16px;
   }
-  .available-card { padding: 16px; }
-  .available-card-actions { flex-direction: column; gap: 8px; }
-  .available-card-actions .btn { width: 100%; }
-  .ngo-main-content { padding-top: 16px; }
+  .available-card {
+    padding: 18px 16px;
+    border-radius: 14px;
+  }
+  .available-card-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .available-card-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
 
-  /* Modal responsive */
-  .claim-modal-backdrop { padding: 16px; align-items: flex-end; }
-  .claim-modal-card { border-radius: 18px 18px 14px 14px; max-height: 90vh; overflow-y: auto; padding: 24px 20px; }
-  .otp-field { font-size: 22px; }
+  /* Dispatch cards & OTP input */
+  .dispatch-card {
+    padding: 18px 16px;
+    border-radius: 14px;
+  }
+  .otp-action-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .otp-field {
+    width: 100% !important;
+    font-size: 20px;
+    text-align: center;
+  }
+  .otp-action-row .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Claim modal responsive */
+  .claim-modal-backdrop {
+    padding: 12px;
+    align-items: flex-end;
+  }
+  .claim-modal-card {
+    border-radius: 18px 18px 12px 12px;
+    max-height: 92vh;
+    overflow-y: auto;
+    padding: 24px 18px;
+  }
+  .claim-modal-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .claim-modal-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 480px) {
-  .claim-modal-backdrop { padding: 8px; }
-  .otp-action-row { flex-direction: column; align-items: stretch; }
-  .otp-field { width: 100% !important; }
+  .header-badge-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .dispatch-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .dispatch-meta-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
 }

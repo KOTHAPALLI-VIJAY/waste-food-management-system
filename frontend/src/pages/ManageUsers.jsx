@@ -134,6 +134,10 @@ function ManageUsers() {
 
         {/* Users Table */}
         <div className="users-table-panel card-surface">
+          <div className="table-scroll-hint">
+            <span>⟷ Swipe horizontally to view full table details</span>
+          </div>
+
           <div className="table-container">
             <table className="modern-table">
               <thead>

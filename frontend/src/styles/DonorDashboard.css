@@ -399,65 +399,84 @@
   color: var(--color-forest);
 }
 
+/* ==========================================================================
+   DONOR DASHBOARD RESPONSIVE (Unified & Clean Cascade)
+   ========================================================================== */
 @media (max-width: 1024px) {
   .donor-stats-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
   }
   .donor-content-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
   }
+  .donation-form-panel { order: 1; }
+  .active-donations-panel { order: 2; }
 }
 
-@media (max-width: 640px) {
-  .donor-stats-grid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 768px) {
+  .donor-dashboard-page { padding-bottom: 60px; }
+  .dashboard-main-content { padding-top: 16px; }
   .dashboard-header-card {
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
+    padding: 20px 16px;
+    border-radius: 14px;
   }
-  .form-row-2 {
-    grid-template-columns: 1fr;
-  }
-  .claimed-dispatch-banner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
-
-/* ==========================================================================
-   DONOR DASHBOARD RESPONSIVE
-   ========================================================================== */
-@media (max-width: 1079px) {
-  .donor-content-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .donation-form-panel { order: 1; }
-  .active-donations-panel { order: 2; }
-  .form-row-2 {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-@media (max-width: 767px) {
-  .donor-dashboard-page { padding: 0; }
-  .dashboard-header-card { padding: 20px 16px; }
-  .dashboard-header-card h1 { font-size: clamp(22px, 6vw, 34px); }
-  .dashboard-main-content { padding-top: 16px; }
-  .donation-form-panel { padding: 20px 16px; border-radius: 14px; }
-  .active-donations-panel { padding: 20px 16px; }
-  .form-row-2 { grid-template-columns: minmax(0, 1fr); gap: 14px; }
-  .otp-digits { font-size: 22px; letter-spacing: 4px; }
-  .claimed-dispatch-banner { flex-direction: column; align-items: flex-start; }
+  .dashboard-header-card h1 { font-size: clamp(22px, 6vw, 30px); }
   .donor-stats-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
   }
-  .stat-metric-card { padding: 16px 14px; }
+  .stat-metric-card {
+    padding: 16px 14px;
+    border-radius: 12px;
+  }
+  .metric-number { font-size: 22px; }
+  .donation-form-panel {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+  .form-row-2 {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .active-donations-panel {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+  .claimed-dispatch-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .otp-handover-box {
+    width: 100%;
+    text-align: center;
+  }
+  .otp-digits {
+    font-size: 24px;
+    letter-spacing: 4px;
+  }
+  .delivered-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
 }
 
 @media (max-width: 480px) {
-  .donor-stats-grid { grid-template-columns: minmax(0, 1fr); }
+  .donor-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .stat-metric-card {
+    gap: 12px;
+  }
+  .stat-icon-wrapper {
+    width: 42px;
+    height: 42px;
+  }
 }

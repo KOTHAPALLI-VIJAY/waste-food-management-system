@@ -1349,65 +1349,8 @@
   }
 }
 
-@media (max-width: 768px) {
-  .hero-section {
-    padding: 44px 0 60px;
-  }
-
-  .hero-headline {
-    font-size: 36px;
-  }
-
-  .hero-subtext {
-    font-size: 15px;
-  }
-
-  .stats-cards-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .listings-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .section-header-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
-  }
-
-  .calculator-card {
-    padding: 28px 20px;
-  }
-
-  .calculator-results-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .footer-cta-inner {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer-content-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .bottom-bar-inner {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .bottom-links {
-    justify-content: center;
-  }
-}
-
-
 /* ==========================================================================
-   HOME PAGE — RESPONSIVE (Additional Breakpoints)
+   HOME PAGE — RESPONSIVE DESIGN (Unified Clean Breakpoints)
    ========================================================================== */
 
 /* Large desktop (1440px+) */
@@ -1425,13 +1368,15 @@
   .hero-subtext { margin-left: auto; margin-right: auto; }
   .hero-cta-group { justify-content: center; }
   .hero-trust-metrics { justify-content: center; }
-  .hero-visual-card { max-width: 520px; margin: 0 auto; }
+  .hero-visual-card { max-width: 520px; margin: 0 auto; width: 100%; }
 
   .stats-cards-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
   }
   .listings-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
   }
   .steps-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1440,9 +1385,11 @@
   .steps-grid::before { display: none; }
   .testimonials-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
   }
   .calculator-results-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
   }
   .footer-content-grid {
     grid-template-columns: 1fr 1fr;
@@ -1457,13 +1404,14 @@
 
 /* Mobile (≤767px) */
 @media (max-width: 767px) {
-  .hero-section { padding: 40px 0 56px; }
-  .hero-headline { font-size: clamp(28px, 8vw, 44px); line-height: 1.2; }
-  .hero-subtext { font-size: 15px; }
+  .hero-section { padding: 36px 0 48px; }
+  .hero-headline { font-size: clamp(28px, 8vw, 42px); line-height: 1.2; }
+  .hero-subtext { font-size: 15px; margin-bottom: 24px; }
   .hero-cta-group {
     flex-direction: column;
     align-items: stretch;
     gap: 12px;
+    margin-bottom: 28px;
   }
   .hero-donate-btn, .hero-how-btn {
     width: 100%;
@@ -1472,21 +1420,31 @@
   .hero-trust-metrics {
     flex-direction: column;
     gap: 12px;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
   }
-  .hero-dashboard-card { padding: 20px 16px; }
-  .floating-stat-box { flex-direction: column; gap: 10px; text-align: center; padding: 18px; }
-  .stat-big-number { font-size: 28px; }
+  .hero-dashboard-card { padding: 18px 16px; border-radius: 14px; }
+  .floating-stat-box {
+    flex-direction: row;
+    gap: 14px;
+    text-align: left;
+    padding: 16px;
+    align-items: center;
+  }
+  .stat-big-number { font-size: 26px; }
 
-  .impact-stats-section { padding: 32px 0; margin-top: 0; }
+  .impact-stats-section { padding: 28px 0; margin-top: 0; }
   .stats-cards-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
   }
-  .impact-metric-card { padding: 18px 14px; }
-  .metric-number { font-size: 26px; }
+  .impact-metric-card {
+    padding: 16px 14px;
+    border-radius: 12px;
+  }
+  .metric-number { font-size: 22px; }
 
-  .marketplace-preview-section { padding: 48px 0 60px; }
+  .marketplace-preview-section { padding: 40px 0 52px; }
   .listings-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 16px;
@@ -1496,47 +1454,57 @@
     align-items: flex-start;
     gap: 12px;
   }
-  .section-title { font-size: clamp(20px, 6vw, 28px); }
+  .section-title { font-size: clamp(22px, 6vw, 28px); }
 
-  .how-it-works-section { padding: 56px 0; }
+  .how-it-works-section { padding: 48px 0; }
   .steps-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 16px;
   }
   .steps-grid::before { display: none; }
+  .step-card { padding: 22px 18px; border-radius: 14px; }
 
-  .calculator-section { padding: 48px 0; }
-  .calculator-card { padding: 28px 20px; }
+  .calculator-section { padding: 40px 0; }
+  .calculator-card { padding: 24px 18px; border-radius: 16px; }
   .calculator-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 14px;
   }
   .calculator-header h2 { font-size: 20px; }
-  .slider-label-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .slider-label-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
   .calculator-results-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 12px;
   }
-  .calc-stat { font-size: 24px; }
+  .calc-result-box { padding: 16px; }
+  .calc-stat { font-size: 22px; }
 
-  .testimonials-section { padding: 48px 0 60px; }
+  .testimonials-section { padding: 40px 0 52px; }
   .testimonials-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 16px;
   }
+  .testimonial-card { padding: 20px 18px; border-radius: 14px; }
 
   /* Footer */
   .footer-cta-banner { padding: 24px 0; }
-  .footer-cta-inner { flex-direction: column; text-align: center; gap: 18px; }
+  .footer-cta-inner { flex-direction: column; text-align: center; gap: 16px; }
   .footer-cta-text h3 { font-size: 18px; }
+  .footer-cta-buttons { width: 100%; flex-direction: column; gap: 10px; }
+  .footer-cta-buttons .btn { width: 100%; justify-content: center; }
+
   .footer-content-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 28px;
-    padding: 40px 24px 36px;
+    padding: 36px 20px 28px;
   }
-  .footer-bottom-bar { padding: 18px 0; }
-  .bottom-bar-inner { flex-direction: column; align-items: center; text-align: center; gap: 10px; }
+  .footer-bottom-bar { padding: 16px 0; }
+  .bottom-bar-inner { flex-direction: column; align-items: center; text-align: center; gap: 12px; }
   .bottom-links { flex-wrap: wrap; justify-content: center; gap: 12px; }
 }
 
@@ -1544,13 +1512,20 @@
 @media (max-width: 480px) {
   .stats-cards-grid {
     grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
   }
   .impact-metric-card {
     flex-direction: row;
     align-items: center;
     gap: 14px;
-    padding: 16px;
+    padding: 14px;
   }
   .metric-icon-wrap { margin-bottom: 0; flex-shrink: 0; }
   .hero-pill-badge { font-size: 11px; }
+  .floating-stat-box {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 8px;
+  }
 }

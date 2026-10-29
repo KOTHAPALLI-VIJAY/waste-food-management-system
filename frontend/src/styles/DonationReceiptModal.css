@@ -348,6 +348,69 @@
   border-top: 1px solid var(--border-color);
 }
 
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .receipt-modal-backdrop {
+    padding: 12px;
+    align-items: flex-end;
+  }
+  .receipt-modal-card {
+    max-height: 92vh;
+    border-radius: 18px 18px 12px 12px;
+  }
+  .receipt-printable-area {
+    padding: 24px 16px;
+  }
+  .receipt-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .receipt-meta-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .receipt-parties-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .receipt-impact-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 14px;
+  }
+  .receipt-footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+  .signature-box {
+    text-align: center;
+  }
+  .receipt-modal-actions {
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+  }
+  .receipt-modal-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .receipt-branding h2 {
+    font-size: 19px;
+  }
+  .receipt-certificate-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 16px 14px;
+  }
+}
+
 @media print {
   body * {
     visibility: hidden;

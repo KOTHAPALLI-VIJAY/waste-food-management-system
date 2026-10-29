@@ -280,6 +280,9 @@
   margin-bottom: 4px;
 }
 
+/* ==========================================================================
+   DONATION HISTORY / TRANSACTIONS RESPONSIVE
+   ========================================================================== */
 @media (max-width: 900px) {
   .lifecycle-timeline {
     flex-direction: column;
@@ -291,10 +294,6 @@
   }
 }
 
-
-/* ==========================================================================
-   DONATION HISTORY / TRANSACTIONS RESPONSIVE
-   ========================================================================== */
 @media (max-width: 767px) {
   .transactions-header-row {
     flex-direction: column;
@@ -308,8 +307,19 @@
     gap: 12px;
     padding: 16px;
   }
-  .toolbar-search { min-width: unset; }
-  .toolbar-filters { flex-wrap: wrap; gap: 6px; }
+  .toolbar-search { min-width: unset; width: 100%; }
+  .toolbar-filters { 
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 6px; 
+    width: 100%;
+  }
+  .filter-btn {
+    flex: 1 1 auto;
+    text-align: center;
+    font-size: 12px;
+    padding: 7px 10px;
+  }
   .transactions-main-content { padding-top: 16px; }
 
   /* Transaction cards */
@@ -320,9 +330,30 @@
     gap: 10px;
   }
   .txn-meta-group { flex-wrap: wrap; gap: 8px; }
-  .lifecycle-timeline { overflow-x: auto; padding-bottom: 8px; }
-
-  /* Table view → make scrollable */
+  .txn-badges-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .lifecycle-timeline { 
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding-left: 4px;
+  }
+  .timeline-step {
+    width: 100%;
+    gap: 12px;
+  }
+  .txn-card-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .txn-card-footer .btn {
+    width: 100%;
+    justify-content: center;
+  }
   .transactions-stream {
     gap: 16px;
   }
@@ -330,5 +361,7 @@
 
 @media (max-width: 480px) {
   .txn-id-badge { font-size: 11px; word-break: break-all; }
-  .filter-btn { font-size: 12px; padding: 6px 10px; }
+  .txn-food-info h3 { font-size: 17px; }
+  .step-title { font-size: 12px; }
+  .step-detail { font-size: 11px; }
 }

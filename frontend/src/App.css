@@ -240,14 +240,34 @@
 .table-container {
   width: 100%;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
   background: #FFFFFF;
   box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.table-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
 }
 
 .modern-table {
   width: 100%;
+  min-width: 620px;
   border-collapse: collapse;
   text-align: left;
   font-size: 14px;
@@ -341,21 +361,33 @@ html, body {
   h3 { font-size: clamp(16px, 5vw, 24px); }
 }
 
+/* Responsive card padding */
+@media (max-width: 640px) {
+  .card-surface {
+    border-radius: var(--radius-md, 14px) !important;
+  }
+}
+
 /* Touch-friendly buttons and inputs */
 @media (max-width: 767px) {
   .btn { 
     min-height: 44px;
-    padding: 12px 20px;
-    font-size: 15px;
+    padding: 11px 18px;
+    font-size: 14px;
   }
   .btn-sm { 
     min-height: 38px;
-    padding: 9px 16px;
+    padding: 8px 14px;
+    font-size: 13px;
   }
   .form-input, .form-select, .form-textarea {
-    font-size: 16px; /* Prevents iOS zoom */
+    font-size: 16px !important; /* Prevents iOS auto-zoom */
     min-height: 44px;
-    padding: 12px 14px;
+    padding: 10px 14px;
+  }
+  .badge {
+    padding: 3px 8px;
+    font-size: 11px;
   }
 }
 
@@ -364,6 +396,22 @@ html, body {
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+/* Scroll hint indicator for mobile tables */
+.table-scroll-hint {
+  display: none;
+  font-size: 11px;
+  color: var(--color-text-secondary, #64748B);
+  margin-bottom: 8px;
+  align-items: center;
+  gap: 4px;
+}
+
+@media (max-width: 767px) {
+  .table-scroll-hint {
+    display: inline-flex;
+  }
 }
 
 /* Stack flex rows on mobile */

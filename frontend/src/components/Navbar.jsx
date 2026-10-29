@@ -208,49 +208,87 @@ function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Backdrop & Drawer */}
       {mobileNavOpen && (
-        <div className="mobile-drawer animate-fade-in">
-          <div className="mobile-drawer-links">
-            <Link to="/" className={`mobile-nav-link ${isActive("/") ? "active" : ""}`}>
-              Home
-            </Link>
-            <Link to="/about" className={`mobile-nav-link ${isActive("/about") ? "active" : ""}`}>
-              About Mission
-            </Link>
-            <Link to="/contact" className={`mobile-nav-link ${isActive("/contact") ? "active" : ""}`}>
-              Contact Us
-            </Link>
-
-            {token ? (
-              <>
-                <Link to={getDashboardPath()} className="mobile-nav-link">
-                  Dashboard ({role?.toUpperCase()})
-                </Link>
-                <Link to="/history" className="mobile-nav-link">
-                  Transactions & Fulfillment
-                </Link>
-                {role === "admin" && (
-                  <Link to="/manage-users" className="mobile-nav-link">
-                    Manage User Accounts
-                  </Link>
-                )}
-                <button className="btn btn-secondary mobile-logout-btn" onClick={handleLogout}>
-                  <LogOut size={15} /> Sign Out
-                </button>
-              </>
-            ) : (
-              <div className="mobile-auth-actions">
-                <Link to="/login" className="btn btn-secondary w-full">
-                  Sign In
-                </Link>
-                <Link to="/login" className="btn btn-primary w-full">
-                  <PlusCircle size={15} /> Donate Food
-                </Link>
+        <>
+          <div 
+            className="mobile-nav-backdrop animate-fade-in" 
+            onClick={() => setMobileNavOpen(false)}
+            aria-hidden="true"
+          />
+          <div className="mobile-drawer animate-slide-down">
+            {token && (
+              <div className="mobile-user-profile-card">
+                <div className={`user-avatar-circle role-${role}`}>
+                  {name.charAt(0).toUpperCase()}
+                </div>
+                <div className="mobile-user-info">
+                  <div className="mobile-user-name">{name}</div>
+                  <div className="mobile-user-email">{email}</div>
+                  <span className={`role-pill role-${role}`}>{role?.toUpperCase()}</span>
+                </div>
               </div>
             )}
+
+            <div className="mobile-drawer-links">
+              <Link to="/" className={`mobile-nav-link ${isActive("/") ? "active" : ""}`}>
+                Home
+              </Link>
+              <Link to="/about" className={`mobile-nav-link ${isActive("/about") ? "active" : ""}`}>
+                About Mission
+              </Link>
+              <Link to="/contact" className={`mobile-nav-link ${isActive("/contact") ? "active" : ""}`}>
+                Contact Us
+              </Link>
+
+              {token ? (
+                <>
+                  <div className="mobile-drawer-divider" />
+                  <Link to={getDashboardPath()} className={`mobile-nav-link ${isActive(getDashboardPath()) ? "active" : ""}`}>
+                    <LayoutDashboard size={16} /> My Dashboard
+                  </Link>
+                  <Link to="/history" className={`mobile-nav-link ${isActive("/history") || isActive("/transactions") ? "active" : ""}`}>
+                    <Clock size={16} /> Transactions & Tracking
+                  </Link>
+                  {role === "admin" && (
+                    <Link to="/manage-users" className={`mobile-nav-link ${isActive("/manage-users") ? "active" : ""}`}>
+                      <Users size={16} /> Manage User Accounts
+                    </Link>
+                  )}
+
+                  {role === "donor" && (
+                    <Link to="/donor" className="btn btn-primary w-full mobile-drawer-cta">
+                      <PlusCircle size={15} /> Donate Food
+                    </Link>
+                  )}
+                  {role === "ngo" && (
+                    <Link to="/ngo" className="btn btn-primary w-full mobile-drawer-cta">
+                      <ShoppingBag size={15} /> Browse Available Food
+                    </Link>
+                  )}
+                  {role === "admin" && (
+                    <Link to="/admin" className="btn btn-primary w-full mobile-drawer-cta">
+                      <ShieldCheck size={15} /> Admin Console
+                    </Link>
+                  )}
+
+                  <button className="btn btn-secondary mobile-logout-btn" onClick={handleLogout}>
+                    <LogOut size={15} /> Sign Out
+                  </button>
+                </>
+              ) : (
+                <div className="mobile-auth-actions">
+                  <Link to="/login" className="btn btn-secondary w-full">
+                    Sign In
+                  </Link>
+                  <Link to="/login" className="btn btn-primary w-full">
+                    <PlusCircle size={15} /> Donate Food
+                  </Link>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
+        </>
       )}
     </header>
   );
