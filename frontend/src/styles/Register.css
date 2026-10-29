@@ -1,52 +1,105 @@
-.register-container{
-    height:85vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+.register-wrapper {
+  max-width: 680px;
+  width: 100%;
+  margin: 40px auto 60px;
+  padding: 0 20px;
 }
 
-.register-card{
-    width:450px;
-    background:white;
-    padding:40px;
-    border-radius:15px;
-    box-shadow:0 0 20px rgba(0,0,0,0.15);
-
-    display:flex;
-    flex-direction:column;
-    gap:15px;
+.register-card {
+  padding: 40px;
+  background: white;
+  box-shadow: var(--shadow-lg);
 }
 
-.register-card h1{
-    text-align:center;
-    color:#2E7D32;
+.role-selector-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 28px;
 }
 
-.register-card input,
-.register-card select{
-    padding:12px;
-    border:1px solid #ccc;
-    border-radius:8px;
-}
-
-.register-card button{
-    padding:12px;
-    border:none;
-    border-radius:8px;
-    background:#2E7D32;
-    color:white;
-    cursor:pointer;
-}
-.register-page {
-  min-height: calc(100vh - 80px);
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
+.role-tab {
   display: flex;
-  justify-content: center;
   align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-color);
+  background: #f8fafc;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  color: var(--text-main);
+}
 
-  padding: 40px 20px;
+.role-tab:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.role-tab.active {
+  border-color: var(--primary-600);
+  background: var(--primary-50);
+  color: var(--primary-800);
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+
+.role-tab strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.role-tab span {
+  display: block;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.role-tab.active span {
+  color: var(--primary-700);
+}
+
+.auth-success-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #065f46;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+@media (max-width: 640px) {
+  .role-selector-tabs {
+    grid-template-columns: 1fr;
+  }
+  .register-card {
+    padding: 24px;
+  }
+}
+
+
+/* Register Responsive */
+@media (max-width: 900px) {
+  .register-wrapper { padding: 24px 20px; }
+  .register-card { padding: 28px 24px; max-width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .register-wrapper { padding: 16px; }
+  .register-card { padding: 20px 16px; }
+  .role-selector-tabs { flex-direction: column; }
+  .role-tab { flex-direction: row; }
 }

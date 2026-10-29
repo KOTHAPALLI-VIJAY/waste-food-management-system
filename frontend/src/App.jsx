@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -19,13 +19,9 @@ function App() {
     <Routes>
       {/* Public Routes */}
       <Route path="/" element={<Home />} />
-
       <Route path="/login" element={<Login />} />
-
       <Route path="/register" element={<Register />} />
-
       <Route path="/about" element={<About />} />
-
       <Route path="/contact" element={<Contact />} />
 
       {/* Donor Routes */}
@@ -38,10 +34,19 @@ function App() {
         }
       />
 
+      {/* Shared Transactions & Fulfillment Ledger */}
       <Route
         path="/history"
         element={
-          <ProtectedRoute role="donor">
+          <ProtectedRoute role={["donor", "ngo", "admin"]}>
+            <DonationHistory />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/transactions"
+        element={
+          <ProtectedRoute role={["donor", "ngo", "admin"]}>
             <DonationHistory />
           </ProtectedRoute>
         }
@@ -75,6 +80,9 @@ function App() {
           </ProtectedRoute>
         }
       />
+
+      {/* Catch-all redirect */}
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }

@@ -1,0 +1,58 @@
+services:
+  # ----------------------------------------------------
+  # Backend Web Service (Node / Express)
+  # ----------------------------------------------------
+  - type: web
+    name: resqfood-backend
+    runtime: node
+    plan: free
+    region: oregon
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: JWT_SECRET
+        generateValue: true
+      # Database connection (Use free Aiven/TiDB/Railway/CleverCloud MySQL, or fallback JSON)
+      - key: DATABASE_URL
+        sync: false
+      - key: DB_HOST
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: DB_PORT
+        value: 3306
+      - key: DB_SSL
+        value: "true"
+
+  # ----------------------------------------------------
+  # Frontend Static Site (Vite / React SPA)
+  # ----------------------------------------------------
+  - type: web
+    name: resqfood-frontend
+    runtime: static
+    plan: free
+    region: oregon
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: resqfood-backend
+          property: url
+

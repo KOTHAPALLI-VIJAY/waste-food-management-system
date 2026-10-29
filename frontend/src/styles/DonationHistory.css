@@ -1,0 +1,334 @@
+.transactions-hub-page {
+  background-color: var(--bg-main);
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+.transactions-main-content {
+  padding-top: 36px;
+}
+
+.transactions-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 28px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.header-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary-700);
+  background: var(--primary-100);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.transactions-header-row h1 {
+  font-size: 32px;
+  margin-bottom: 4px;
+}
+
+.transactions-header-row p {
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+/* Toolbar */
+.transactions-toolbar {
+  padding: 16px 20px;
+  background: white;
+  margin-bottom: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.toolbar-search {
+  position: relative;
+  flex: 1;
+  min-width: 320px;
+}
+
+.toolbar-search .search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-light);
+}
+
+.toolbar-search .search-field {
+  padding-left: 40px;
+}
+
+.toolbar-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: #f1f5f9;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  background: #e2e8f0;
+}
+
+.filter-btn.active {
+  background: var(--primary-700);
+  color: white;
+}
+
+/* Transactions Stream */
+.transactions-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.transaction-card {
+  padding: 28px;
+  background: white;
+  border: 1px solid var(--border-color);
+  transition: all 0.25s ease;
+}
+
+.transaction-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: var(--shadow-md);
+}
+
+.txn-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.txn-meta-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.txn-id-badge {
+  font-family: monospace;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--primary-700);
+  background: var(--primary-50);
+  border: 1px solid var(--primary-200);
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.txn-date-stamp {
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+.txn-food-info {
+  margin-bottom: 24px;
+}
+
+.txn-food-info h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: var(--text-main);
+}
+
+.txn-badges-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.spec-tag {
+  font-size: 12px;
+  color: var(--text-muted);
+  background: #f8fafc;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+/* 4-Stage Lifecycle Timeline */
+.lifecycle-timeline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8fafc;
+  padding: 20px 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  margin-bottom: 20px;
+}
+
+.timeline-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.step-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.timeline-step.completed .step-circle {
+  background: #ecfdf5;
+  color: #059669;
+  border: 1.5px solid #10b981;
+}
+
+.timeline-step.in-transit .step-circle {
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1.5px solid #3b82f6;
+  animation: pulseDot 2s infinite;
+}
+
+.timeline-step.pending .step-circle {
+  background: #f1f5f9;
+  color: #94a3b8;
+  border: 1.5px dashed #cbd5e1;
+}
+
+.step-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.step-detail {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.timeline-connector {
+  height: 2px;
+  background: #cbd5e1;
+  flex: 0.4;
+  margin: 0 10px;
+}
+
+.timeline-connector.active {
+  background: #10b981;
+}
+
+/* Card Footer */
+.txn-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.in-transit-alert {
+  font-size: 13px;
+  color: #1e40af;
+}
+
+.delivered-impact-note {
+  font-size: 13px;
+  color: #065f46;
+}
+
+.empty-transactions-card, .loading-card {
+  text-align: center;
+  padding: 60px;
+  background: white;
+}
+
+.empty-transactions-card h3 {
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 900px) {
+  .lifecycle-timeline {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .timeline-connector {
+    display: none;
+  }
+}
+
+
+/* ==========================================================================
+   DONATION HISTORY / TRANSACTIONS RESPONSIVE
+   ========================================================================== */
+@media (max-width: 767px) {
+  .transactions-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .transactions-header-row h1 { font-size: clamp(20px, 6vw, 30px); }
+  .transactions-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 16px;
+  }
+  .toolbar-search { min-width: unset; }
+  .toolbar-filters { flex-wrap: wrap; gap: 6px; }
+  .transactions-main-content { padding-top: 16px; }
+
+  /* Transaction cards */
+  .transaction-card { padding: 18px 16px; border-radius: 14px; }
+  .txn-card-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .txn-meta-group { flex-wrap: wrap; gap: 8px; }
+  .lifecycle-timeline { overflow-x: auto; padding-bottom: 8px; }
+
+  /* Table view → make scrollable */
+  .transactions-stream {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .txn-id-badge { font-size: 11px; word-break: break-all; }
+  .filter-btn { font-size: 12px; padding: 6px 10px; }
+}

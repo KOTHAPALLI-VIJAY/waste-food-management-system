@@ -8,8 +8,14 @@ function ProtectedRoute({ children, role }) {
     return <Navigate to="/login" />;
   }
 
-  if (role && userRole !== role) {
-    return <Navigate to="/" />;
+  if (role) {
+    if (Array.isArray(role)) {
+      if (!role.includes(userRole)) {
+        return <Navigate to="/" />;
+      }
+    } else if (userRole !== role) {
+      return <Navigate to="/" />;
+    }
   }
 
   return children;

@@ -1,85 +1,486 @@
-.navbar {
-  background: #2e7d32;
-  color: white;
+/* ==========================================================================
+   ResQFood — Polished White Header & Navbar Styles
+   ========================================================================== */
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 20px 60px;
-}
-
-.navbar h2 {
-  margin: 0;
-  font-size: 24px;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-}
-
-.nav-links a:hover {
-  color: #dcedc8;
-}
-
-.user-menu {
-  position: relative;
-  cursor: pointer;
-
-  color: white;
-  font-size: 18px;
-  font-weight: 600;
-
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.dropdown {
-  position: absolute;
-  top: 40px;
-  right: 0;
-
-  width: 220px;
-
-  background: white;
-  color: black;
-
-  border-radius: 8px;
-  padding: 15px;
-
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-
+.app-navbar-wrapper {
+  position: sticky;
+  top: 0;
   z-index: 1000;
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--color-border, #E2E8F0);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s ease;
 }
 
-.dropdown p {
-  margin-bottom: 10px;
-  color: black;
-  word-wrap: break-word;
+.navbar-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 24px;
 }
 
-.dropdown button {
-  width: 100%;
-  padding: 10px;
-
-  border: none;
-  border-radius: 5px;
-
-  background: #2e7d32;
-  color: white;
-
+/* --------------------------------------------------------------------------
+   Brand Logo
+   -------------------------------------------------------------------------- */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
-.dropdown button:hover {
-  background: #1b5e20;
+.brand-icon {
+  background: linear-gradient(135deg, var(--color-forest, #064E3B) 0%, var(--color-emerald, #059669) 100%);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md, 12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(5, 150, 105, 0.25);
+  transition: transform 0.2s ease;
+}
+
+.brand-logo:hover .brand-icon {
+  transform: scale(1.05);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-family: var(--font-display, 'Manrope', sans-serif);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--color-text-main, #17211D);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.brand-highlight {
+  color: var(--color-emerald, #059669);
+}
+
+.brand-subtitle {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--color-purple, #6D28D9);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-top: 1px;
+}
+
+/* --------------------------------------------------------------------------
+   Centered Desktop Nav Links
+   -------------------------------------------------------------------------- */
+.desktop-nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.nav-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-secondary, #64748B);
+  padding: 8px 16px;
+  border-radius: var(--radius-pill, 9999px);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: var(--color-emerald, #059669);
+  background-color: var(--color-mint-soft, #F0FDF7);
+}
+
+.nav-link.active {
+  color: var(--color-forest, #064E3B);
+  background-color: #D1FAE5;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   Navbar Actions (Right Side)
+   -------------------------------------------------------------------------- */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-signin-btn {
+  background: #FFFFFF;
+  color: var(--color-text-main, #17211D);
+  border: 1.5px solid var(--color-border, #E2E8F0);
+  padding: 8px 18px;
+  border-radius: var(--radius-pill, 9999px);
+  font-size: 13.5px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.nav-signin-btn:hover {
+  background: #F8FAFC;
+  border-color: #CBD5E1;
+  color: var(--color-forest, #064E3B);
+}
+
+/* Prominent Emerald Donate Food CTA Button */
+.nav-donate-cta {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  font-size: 13.5px !important;
+  padding: 8px 20px !important;
+  border-radius: var(--radius-pill, 9999px) !important;
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  border: none !important;
+  transition: all 0.22s ease !important;
+  text-decoration: none !important;
+}
+
+.nav-donate-cta:hover {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%) !important;
+  box-shadow: 0 6px 18px rgba(5, 150, 105, 0.45) !important;
+  transform: translateY(-2px);
+}
+
+.authenticated-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.action-cta-btn {
+  display: inline-flex;
+}
+
+/* --------------------------------------------------------------------------
+   User Profile Pill & Dropdown
+   -------------------------------------------------------------------------- */
+.user-profile-menu {
+  position: relative;
+}
+
+.user-profile-trigger {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: #F0FDF7;
+  border: 1px solid #D1FAE5;
+  padding: 5px 14px 5px 6px;
+  border-radius: var(--radius-pill, 9999px);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.user-profile-trigger:hover {
+  background: #E6FBF2;
+  border-color: #A7F3D0;
+}
+
+.user-avatar-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-emerald, #059669);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.user-avatar-circle.role-donor {
+  background: var(--color-emerald, #059669);
+}
+
+.user-avatar-circle.role-ngo {
+  background: var(--color-purple, #6D28D9);
+}
+
+.user-avatar-circle.role-admin {
+  background: var(--color-forest, #064E3B);
+}
+
+.user-details-preview {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-align: left;
+}
+
+.user-name-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text-main, #17211D);
+  max-width: 110px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.role-pill {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.4px;
+}
+
+.role-pill.role-donor {
+  background: #DCFCE7;
+  color: #065F46;
+}
+
+.role-pill.role-ngo {
+  background: #EDE9FE;
+  color: #6D28D9;
+}
+
+.role-pill.role-admin {
+  background: #E2E8F0;
+  color: #334155;
+}
+
+.chevron-icon {
+  color: var(--color-text-secondary, #64748B);
+  transition: transform 0.2s ease;
+}
+
+.chevron-icon.rotate {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menu Panel */
+.user-dropdown-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 260px;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border, #E2E8F0);
+  border-radius: var(--radius-lg, 16px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+  padding: 16px;
+  z-index: 1001;
+  text-align: left;
+}
+
+.dropdown-user-header {
+  padding-bottom: 12px;
+}
+
+.header-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-main, #17211D);
+  margin-bottom: 2px;
+}
+
+.header-email {
+  font-size: 12px;
+  color: var(--color-text-secondary, #64748B);
+  margin-bottom: 8px;
+  word-break: break-all;
+}
+
+.header-role-badge {
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill, 9999px);
+  display: inline-block;
+  letter-spacing: 0.3px;
+}
+
+.header-role-badge.role-donor {
+  background: #DCFCE7;
+  color: #064E3B;
+  border: 1px solid #A7F3D0;
+}
+
+.header-role-badge.role-ngo {
+  background: #EDE9FE;
+  color: #6D28D9;
+  border: 1px solid #DDD6FE;
+}
+
+.header-role-badge.role-admin {
+  background: #F1F5F9;
+  color: #334155;
+  border: 1px solid #E2E8F0;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: var(--color-border, #E2E8F0);
+  margin: 8px -16px;
+}
+
+.dropdown-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm, 8px);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-main, #17211D);
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.dropdown-item:hover {
+  background: #F0FDF7;
+  color: var(--color-forest, #064E3B);
+}
+
+.dropdown-logout-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border: none;
+  background: transparent;
+  color: #DC2626;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: var(--radius-sm, 8px);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  margin-top: 4px;
+}
+
+.dropdown-logout-btn:hover {
+  background: #FEF2F2;
+}
+
+/* --------------------------------------------------------------------------
+   Mobile Hamburger & Drawer
+   -------------------------------------------------------------------------- */
+.mobile-hamburger-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--color-text-main, #17211D);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: var(--radius-sm, 8px);
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-hamburger-btn:hover {
+  background: #F1F5F9;
+}
+
+.mobile-drawer {
+  display: none;
+  padding: 16px 24px 24px;
+  border-top: 1px solid var(--color-border, #E2E8F0);
+  background: #FFFFFF;
+  text-align: left;
+}
+
+.mobile-drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobile-nav-link {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-main, #17211D);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm, 8px);
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.mobile-nav-link:hover {
+  background: #F0FDF7;
+  color: var(--color-emerald, #059669);
+}
+
+.mobile-nav-link.active {
+  background: #D1FAE5;
+  color: var(--color-forest, #064E3B);
+  font-weight: 700;
+}
+
+.mobile-logout-btn {
+  margin-top: 12px;
+  width: 100%;
+  justify-content: center;
+}
+
+.mobile-auth-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #E2E8F0;
+}
+
+/* --------------------------------------------------------------------------
+   Navbar Responsive Media Queries
+   -------------------------------------------------------------------------- */
+/* ── Tablet/Mobile Responsive ── */
+@media (max-width: 960px) {
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    gap: 12px;
+  }
+  .desktop-nav-links { display: none; }
+  .action-cta-btn { display: none !important; }
+  .auth-buttons .nav-signin-btn { display: none; }
+  .auth-buttons .nav-donate-cta { display: none; }
+  .mobile-hamburger-btn { display: flex; }
+  .mobile-drawer { display: block; }
+  .user-name-label { max-width: 80px; }
+}
+
+@media (max-width: 480px) {
+  .navbar-container { padding: 10px 16px; }
+  .brand-title { font-size: 17px; }
+  .brand-subtitle { display: none; }
+  .user-name-label { display: none; }
+}
+
+@media (max-width: 360px) {
+  .brand-title { font-size: 15px; }
 }
